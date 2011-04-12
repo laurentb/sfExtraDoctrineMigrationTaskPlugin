@@ -33,11 +33,8 @@ EOF;
 
     $this->logSection($this->namespace.':'.$this->name, 'Setting current migration version to '.$number);
 
-    $sql = 'DROP TABLE IF EXISTS `migration_version`;
-    CREATE TABLE `migration_version` (`version` int(11) DEFAULT NULL);
-    INSERT INTO `migration_version` VALUES (?);';
-
-    $connection->execute($sql, array($number));
+    $dm = new Doctrine_Migration(null, $connection);
+    $dm->setCurrentVersion($number);
   }
 
   protected function guessCurrentVersion()
