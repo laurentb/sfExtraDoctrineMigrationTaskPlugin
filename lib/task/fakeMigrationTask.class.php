@@ -1,5 +1,4 @@
 <?php
-
 class fakeMigrationTask extends sfDoctrineBaseTask
 {
   protected function configure()
@@ -16,7 +15,7 @@ class fakeMigrationTask extends sfDoctrineBaseTask
     $this->aliases          = array('dcfm');
     $this->namespace        = 'doctrine';
     $this->name             = 'fake-migrate';
-    $this->briefDescription = '';
+    $this->briefDescription = 'Set the current migration version in the database';
     $this->detailedDescription = <<<EOF
 The [doctrine:fake-migrate|INFO] task sets the current migration version in the database.
 It will not perform any migration.
